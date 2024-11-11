@@ -29,6 +29,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   final idNumberController=TextEditingController();
   final phoneController=TextEditingController();
   final ageController=TextEditingController();
+  final collegeController=TextEditingController();
   bool isObsecure=true;
 
 
@@ -73,22 +74,23 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
                   // Membership question
                   RadioListTile(
-                    title:const Text(' Member of Princess Nourah University'),
+                    title: Text('member_of_princess_nourah_university'.tr),
                     value: 'yes',
                     groupValue: isMember,
                     onChanged: (value) {
+                      print('value is $value');
                       setState(() {
-                        isMember = value as String?;
+                        isMember = value;
                       });
                     },
                   ),
                   RadioListTile(
-                    title:const Text('No, I am not a member'),
+                    title: Text('No_I_am_not_a_member'.tr),
                     value: 'no',
                     groupValue: isMember,
                     onChanged: (value) {
                       setState(() {
-                        isMember = value as String?;
+                        isMember = value;
                       });
                     },
                   ),
@@ -99,8 +101,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     keyboardType: TextInputType.emailAddress,
                     controller: nameController,
 
-                    decoration:const InputDecoration(
-                        hintText: 'Enter your Full Name',
+                    decoration: InputDecoration(
+                        hintText: 'Enter_your_Full_Name'.tr,
                         contentPadding: const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 20,
@@ -128,7 +130,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             Radius.circular(10),
                           ),
                         ),
-                        prefixIcon: Icon(Icons.person,color: kPrimary,)
+                        prefixIcon:const Icon(Icons.person,color: kPrimary,)
                     ),
                   ),
                  const SizedBox(height: 8),
@@ -139,8 +141,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     keyboardType: TextInputType.emailAddress,
                     controller: emailController,
 
-                    decoration:const InputDecoration(
-                        hintText: 'Enter your Email',
+                    decoration: InputDecoration(
+                        hintText: 'enter_your_email'.tr,
                         contentPadding: const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 20,
@@ -168,7 +170,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             Radius.circular(10),
                           ),
                         ),
-                        prefixIcon: Icon(Icons.email_outlined,color: kPrimary,)
+                        prefixIcon:const Icon(Icons.email_outlined,color: kPrimary,)
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -180,7 +182,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     controller: passwordController,
 
                     decoration:  InputDecoration(
-                        hintText: 'Enter your password',
+                        hintText: 'enter_your_password'.tr,
                         contentPadding:const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 20,
@@ -225,51 +227,91 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
 
                   // ID Number input field
-                  TextField(
-                    keyboardType: TextInputType.emailAddress,
-                    controller: idNumberController,
+                  if(isMember=='yes')...[
+                    TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      controller: idNumberController,
 
-                    decoration:const InputDecoration(
-                        hintText: 'Enter your ID Number',
-                        contentPadding: const EdgeInsets.symmetric(
-                          vertical: 10,
-                          horizontal: 20,
-                        ),
-                        border: const OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
+                      decoration: InputDecoration(
+                          hintText: 'Enter_your_ID_Number'.tr,
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 20,
                           ),
-                        ),
-                        enabledBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: const Color.fromARGB(170, 4, 131, 72),
-                            width: 1,
+                          border: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
                           ),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
+                          enabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: const Color.fromARGB(170, 4, 131, 72),
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
                           ),
-                        ),
-                        focusedBorder: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.blue,
-                            width: 2,
+                          focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.blue,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
                           ),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                        ),
-                        prefixIcon: Icon(Icons.numbers,color: kPrimary,)
+                          prefixIcon:const Icon(Icons.numbers,color: kPrimary,)
+                      ),
                     ),
-                  ),
-                 const SizedBox(height: 8),
+                    const SizedBox(height: 8),
+                    TextField(
+                      keyboardType: TextInputType.text,
+                      controller: collegeController,
+
+                      decoration: InputDecoration(
+                          hintText: 'Enter your college name'.tr,
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 20,
+                          ),
+                          border: const OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          ),
+                          enabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: const Color.fromARGB(170, 4, 131, 72),
+                              width: 1,
+                            ),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colors.blue,
+                              width: 2,
+                            ),
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                          ),
+                          prefixIcon:const Icon(Icons.numbers,color: kPrimary,)
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                  ],
+
 
                   // Phone Number input field
                   TextField(
                     keyboardType: TextInputType.emailAddress,
                     controller: phoneController,
 
-                    decoration:const InputDecoration(
-                        hintText: 'Enter your Phone Number',
+                    decoration: InputDecoration(
+                        hintText: 'Enter_your_Phone_Number'.tr,
                         contentPadding: const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 20,
@@ -297,7 +339,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             Radius.circular(10),
                           ),
                         ),
-                        prefixIcon: Icon(Icons.numbers,color: kPrimary,)
+                        prefixIcon:const Icon(Icons.numbers,color: kPrimary,)
                     ),
                   ),
                 const  SizedBox(height: 8),
@@ -307,8 +349,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     keyboardType: TextInputType.emailAddress,
                     controller: ageController,
 
-                    decoration:const InputDecoration(
-                        hintText: 'Enter your Age',
+                    decoration: InputDecoration(
+                        hintText: 'Enter_your_Age'.tr,
                         contentPadding: const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 20,
@@ -336,7 +378,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                             Radius.circular(10),
                           ),
                         ),
-                        prefixIcon: Icon(Icons.numbers,color: kPrimary,)
+                        prefixIcon:const Icon(Icons.numbers,color: kPrimary,)
                     ),
                   ),
                  const SizedBox(height: 10),
@@ -346,25 +388,37 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                     builder: (context)=>const Center(child: CircularProgressIndicator(backgroundColor: kPrimary,)),
                     fallback: (context)=>MyButton(
                       color: const Color.fromARGB(170, 4, 131, 72),
-                      title: 'Register',
+                      title: 'register'.tr,
                       onPressed: () async {
-                        if(emailController.text.isEmpty||passwordController.text.isEmpty||phoneController.text.isEmpty||nameController.text.isEmpty||idNumberController.text.isEmpty||ageController.text.isEmpty){
-                          Utils.MyToast(title: 'All fields are required');
-                        }else{
-                          _userController.createAccount(email: emailController.text, password: passwordController.text, phoneNumber: phoneController.text, userName: nameController.text, status: 0, idNumber: idNumberController.text, age: ageController.text).then((value){
+
+                        if(isMember=='yes'){
+                          if(emailController.text.isEmpty||passwordController.text.isEmpty||phoneController.text.isEmpty||nameController.text.isEmpty||idNumberController.text.isEmpty||ageController.text.isEmpty||collegeController.text.isEmpty){
+                            Utils.MyToast(title: 'All fields are required');
+                          }else{
+                           await _userController.createAccount(collegeName: collegeController.text,email: emailController.text, password: passwordController.text, phoneNumber: phoneController.text, userName: nameController.text, status: 0, idNumber: idNumberController.text, age: ageController.text).then((value){
+                              emailController.clear();
+                              passwordController.clear();
+                              phoneController.clear();
+                              ageController.clear();
+                              idNumberController.clear();
+                              nameController.clear();
+                            });
                             emailController.clear();
                             passwordController.clear();
                             phoneController.clear();
-                            ageController.clear();
-                            idNumberController.clear();
                             nameController.clear();
-                          });
-                          emailController.clear();
-                          passwordController.clear();
-                          phoneController.clear();
-                          nameController.clear();
-                          idNumberController.clear();
-                          ageController.clear();
+                            idNumberController.clear();
+                            ageController.clear();
+                          }
+
+                        }
+                        else{
+                          if(nameController.text.isEmpty||emailController.text.isEmpty||passwordController.text.isEmpty||phoneController.text.isEmpty||ageController.text.isEmpty){
+                            Utils.MyToast(title: 'All fields are required');
+                          }else{
+                          await  _userController.createAccount(email: emailController.text, password: passwordController.text, phoneNumber: phoneController.text, userName: nameController.text, status: 0, age: ageController.text);
+
+                          }
                         }
 
 
@@ -374,16 +428,16 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   const SizedBox(height: 10),
                   Row(
                     children: [
-                      const Text(
-                          'Already have an account ? '
+                       Text(
+                          'Already_have_an_account_?'.tr
                       ),
                       TextButton(
                           onPressed: (){
                             Get.off(()=>const SignInScreen());
                           },
-                          child:const Text(
-                            'Sign In',
-                            style: TextStyle(
+                          child: Text(
+                            'sign_in'.tr,
+                            style:const TextStyle(
                                 color: kPrimary
                             ),
                           ))

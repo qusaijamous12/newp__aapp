@@ -47,27 +47,27 @@ class _SignInScreenState extends State<SignInScreen> {
                       keyboardType: TextInputType.emailAddress,
                       controller: emailController,
 
-                      decoration:const InputDecoration(
-                        hintText: 'Enter your Email',
-                        contentPadding: EdgeInsets.symmetric(
+                      decoration: InputDecoration(
+                        hintText: 'enter_your_email'.tr,
+                        contentPadding:const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 20,
                         ),
-                        border: OutlineInputBorder(
+                        border:const OutlineInputBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(10),
                           ),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder:const OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: const Color.fromARGB(170, 4, 131, 72),
+                            color:  Color.fromARGB(170, 4, 131, 72),
                             width: 1,
                           ),
                           borderRadius: BorderRadius.all(
                             Radius.circular(10),
                           ),
                         ),
-                        focusedBorder: OutlineInputBorder(
+                        focusedBorder:const OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.blue,
                             width: 2,
@@ -76,7 +76,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             Radius.circular(10),
                           ),
                         ),
-                        prefixIcon: Icon(Icons.email_outlined,color: kPrimary,)
+                        prefixIcon:const Icon(Icons.email_outlined,color: kPrimary,)
                       ),
                     ),
                    const SizedBox(height: 8),
@@ -85,7 +85,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       controller: passwordController,
 
                       decoration:  InputDecoration(
-                        hintText: 'Enter your password',
+                        hintText: 'enter_your_password'.tr,
                         contentPadding:const EdgeInsets.symmetric(
                           vertical: 10,
                           horizontal: 20,
@@ -130,7 +130,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         builder: (context)=>const Center(child: CircularProgressIndicator(backgroundColor: kPrimary,)) ,
                         fallback: (context)=>MyButton(
                           color: const Color.fromARGB(170, 4, 131, 72),
-                          title: 'Sign in',
+                          title: 'sign_in'.tr,
                           onPressed: ()async {
                             if(emailController.text.isNotEmpty&&passwordController.text.isNotEmpty){
                               _userController.loginInWithEmailAndPassword(email: emailController.text, password: passwordController.text).then((value){
@@ -148,16 +148,16 @@ class _SignInScreenState extends State<SignInScreen> {
                     const SizedBox(height: 20),
                     Row(
                       children: [
-                       const Text(
-                          'Don\'t have an account ? '
+                        Text(
+                          'dont_have_an_account'.tr
                         ),
                         TextButton(
                             onPressed: (){
                               Get.off(()=>const RegistrationScreen());
                             },
-                            child:const Text(
-                              'Sign Up',
-                              style: TextStyle(
+                            child: Text(
+                              'sign_up'.tr,
+                              style:const TextStyle(
                                 color: kPrimary
                               ),
                             ))

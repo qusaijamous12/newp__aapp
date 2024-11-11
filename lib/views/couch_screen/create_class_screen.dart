@@ -30,9 +30,9 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
       child:  SingleChildScrollView(
         child: Column(
           children: [
-           const Text(
-                'Please fill the following fields to Create Class...',
-              style: TextStyle(
+            Text(
+                'Please fill the following_fields_to_Create_Class...'.tr,
+              style:const TextStyle(
                 color: kPrimary,
                 fontWeight: FontWeight.w500,
                 fontSize: 18
@@ -45,27 +45,27 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
               keyboardType: TextInputType.emailAddress,
               controller: className,
         
-              decoration:const InputDecoration(
-                  hintText: 'Enter Your Class Name',
-                  contentPadding: EdgeInsets.symmetric(
+              decoration: InputDecoration(
+                  hintText: 'Enter_Your_Class_Name'.tr,
+                  contentPadding:const EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 20,
                   ),
-                  border: OutlineInputBorder(
+                  border:const OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder:const OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: const Color.fromARGB(170, 4, 131, 72),
+                      color:  Color.fromARGB(170, 4, 131, 72),
                       width: 1,
                     ),
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder:const OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.blue,
                       width: 2,
@@ -92,27 +92,27 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
                 });
               },
         
-              decoration:const InputDecoration(
-                  hintText: 'Enter Your Class Time',
-                  contentPadding: EdgeInsets.symmetric(
+              decoration: InputDecoration(
+                  hintText: 'Enter_Your_Class_Time'.tr,
+                  contentPadding:const EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 20,
                   ),
-                  border: OutlineInputBorder(
+                  border:const OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder:const OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: const Color.fromARGB(170, 4, 131, 72),
+                      color:  Color.fromARGB(170, 4, 131, 72),
                       width: 1,
                     ),
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder:const OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.blue,
                       width: 2,
@@ -121,7 +121,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
                       Radius.circular(10),
                     ),
                   ),
-                  prefixIcon: Icon(Icons.watch_later,color: kPrimary,)
+                  prefixIcon:const Icon(Icons.watch_later,color: kPrimary,)
               ),
             ),
             const  SizedBox(
@@ -154,27 +154,27 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
         
               },
         
-              decoration:const InputDecoration(
-                  hintText: 'Enter Your Class Date',
-                  contentPadding: EdgeInsets.symmetric(
+              decoration: InputDecoration(
+                  hintText: 'Enter_Your_Class_Date'.tr,
+                  contentPadding:const EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 20,
                   ),
-                  border: OutlineInputBorder(
+                  border:const OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder:const OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: const Color.fromARGB(170, 4, 131, 72),
+                      color:  Color.fromARGB(170, 4, 131, 72),
                       width: 1,
                     ),
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder:const OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.blue,
                       width: 2,
@@ -183,7 +183,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
                       Radius.circular(10),
                     ),
                   ),
-                  prefixIcon: Icon(Icons.date_range,color: kPrimary,)
+                  prefixIcon:const Icon(Icons.date_range,color: kPrimary,)
               ),
             ),
             const  SizedBox(
@@ -193,27 +193,27 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
               keyboardType: TextInputType.emailAddress,
               controller: coachName,
         
-              decoration:const InputDecoration(
-                  hintText: 'Enter Your Name',
-                  contentPadding: EdgeInsets.symmetric(
+              decoration: InputDecoration(
+                  hintText: 'Enter_Your_Name'.tr,
+                  contentPadding:const EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 20,
                   ),
-                  border: OutlineInputBorder(
+                  border:const OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),
-                  enabledBorder: OutlineInputBorder(
+                  enabledBorder:const OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: const Color.fromARGB(170, 4, 131, 72),
+                      color:  Color.fromARGB(170, 4, 131, 72),
                       width: 1,
                     ),
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),
-                  focusedBorder: OutlineInputBorder(
+                  focusedBorder:const OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.blue,
                       width: 2,
@@ -222,7 +222,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
                       Radius.circular(10),
                     ),
                   ),
-                  prefixIcon: Icon(Icons.drive_file_rename_outline,color: kPrimary,)
+                  prefixIcon:const Icon(Icons.drive_file_rename_outline,color: kPrimary,)
               ),
             ),
             const  SizedBox(
@@ -237,7 +237,7 @@ class _CreateClassScreenState extends State<CreateClassScreen> {
                       width: double.infinity,
         
         
-                      child: MyButton(color: kPrimary, title: 'Create', onPressed: (){
+                      child: MyButton(color: kPrimary, title: 'create'.tr, onPressed: (){
                         if(className.text.isEmpty||classDate.text.isEmpty||classTime.text.isEmpty||coachName.text.isEmpty){
                           Utils.MyToast(title: 'All Fields is required');
                         }

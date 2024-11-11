@@ -55,7 +55,7 @@ class _ClassesScreenState extends State<ClassesScreen> {
                     ),
 
                     child: Text(
-                      'Classes',
+                      'classes'.tr,
                       style: TextStyle(
                         color: isMyClasses?kPrimary:Colors.white,
                         fontSize: 18,
@@ -86,7 +86,7 @@ class _ClassesScreenState extends State<ClassesScreen> {
                       color: isMyClasses?kPrimary:Colors.white,
                     ),
                     child: Text(
-                      'My Classes',
+                      'My_Classes'.tr,
                       style: TextStyle(
                           color: isMyClasses?Colors.white:kPrimary,
                           fontSize: 18,
@@ -165,7 +165,7 @@ class _ClassesScreenState extends State<ClassesScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                  Text(
-                  'Class Title :${model.className}',
+                  'Class Title :${model.className}'.tr,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                   style:const TextStyle(
@@ -177,7 +177,7 @@ class _ClassesScreenState extends State<ClassesScreen> {
                   height: 10,
                 ),
                 Text(
-                  'Coach Name :${model.couchName??model.className}',
+                  'Coach Name :${model.couchName??model.className}'.tr,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
                   style:const TextStyle(
@@ -187,7 +187,7 @@ class _ClassesScreenState extends State<ClassesScreen> {
                 ),
                 const Spacer(),
                  Text(
-                    'Time for the Class : ${model.classDate} At ${model.classTime}',
+                    'Time for The Class :${model.classDate} At ${model.classTime}'.tr,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
                     style:const TextStyle(
@@ -213,8 +213,8 @@ class _ClassesScreenState extends State<ClassesScreen> {
                             color: kPrimary,
                             borderRadius: BorderRadiusDirectional.circular(20)
                           ),
-                          child:const Text('Accept',
-                          style: TextStyle(
+                          child: Text('accept'.tr,
+                          style:const TextStyle(
                             color: Colors.white
                           ),),
                         ),
@@ -231,8 +231,8 @@ class _ClassesScreenState extends State<ClassesScreen> {
                             color: const Color(0xff2e386b),
                             borderRadius: BorderRadiusDirectional.circular(20)
                         ),
-                        child:const Text('Decline',
-                          style: TextStyle(
+                        child: Text('decline'.tr,
+                          style:const TextStyle(
                               color: Colors.white
                           ),),
                       ),

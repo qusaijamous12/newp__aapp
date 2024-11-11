@@ -47,7 +47,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
             MyButton(
                  color: const Color.fromARGB(170, 4, 131, 72),
-              title: 'Sign In',
+              title: 'sign_in'.tr,
               onPressed: () {
               Get.off(()=>const SignInScreen());
               },
@@ -55,7 +55,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
             MyButton(      
                color: const Color.fromARGB(170, 4, 131, 72),
-              title: 'Sign Up',
+              title: 'sign_up'.tr,
               onPressed: () {
                  Get.off(()=>const RegistrationScreen());
               },

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradproject/controller/admin_controller.dart';
+import 'package:gradproject/controller/home_controller.dart';
 import 'package:gradproject/screens/welcome_screen.dart';
 import 'package:gradproject/shared/colors.dart';
 import 'package:gradproject/views/admin_screen/create_announcment_couch.dart';
@@ -17,6 +18,7 @@ class AdminHomeScreen extends StatefulWidget {
 
 class _AdminHomeScreenState extends State<AdminHomeScreen> {
   final _adminController=Get.find<AdminController>(tag: 'admin_controller');
+  final _homeController=Get.find<HomeController>(tag: 'home_controller');
   @override
   Widget build(BuildContext context) {
     return Obx(()=>Scaffold(
@@ -28,9 +30,24 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
             const SizedBox(
               width: 10,
             ),
-            Text('${_adminController.titles[_adminController.currentIndex]}',style:const TextStyle(color: Colors.white),),
+            Text('${_adminController.titles[_adminController.currentIndex]}'.tr,style:const TextStyle(color: Colors.white),),
           ],
         ),
+        actions: [
+          IconButton(
+              onPressed: (){
+                if(_homeController.currentLanguage=='en'){
+                  _homeController.updateCurrentLanguage(const Locale('ar'));
+                }
+                else{
+                  _homeController.updateCurrentLanguage(const Locale('en'));
+
+
+                }
+
+              },
+              icon:const Icon(Icons.language,color: Colors.white,)),
+        ],
         centerTitle: true,
 
       ),
@@ -54,41 +71,41 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
       child: ListView(
         padding: EdgeInsets.zero,
         children: <Widget>[
-          const  DrawerHeader(
-            decoration: BoxDecoration(
-              color: const Color.fromARGB(170, 4, 131, 72),
+            DrawerHeader(
+            decoration:const BoxDecoration(
+              color:  Color.fromARGB(170, 4, 131, 72),
             ),
             child: Text(
-              'Menu',
-              style: TextStyle(
+              'Menu'.tr,
+              style:const TextStyle(
                 color: Colors.white,
                 fontSize: 24,
               ),
             ),
           ),
           ListTile(
-            title:const Text('Messages'),
+            title: Text('Messages'.tr),
             onTap: () {
               Get.to(()=>const MessageScreen()); // Close the drawer
             },
           ),
 
           ListTile(
-            title:const Text('Log Out'),
-            onTap: () {
-               Get.offAll(()=>const WelcomeScreen());
-            },
-          ),
-          ListTile(
-            title:const Text('Announcment Screen'),
+            title: Text('Announcment_Screen'.tr),
             onTap: () {
               Get.to(()=>const AnnouncmentScreen());
             },
           ),
           ListTile(
-            title:const Text('Announcement Coach'),
+            title: Text('Announcement_Coach'.tr),
             onTap: () {
               Get.to(()=>const CreateAnnouncmentCouch()); // Close the drawer
+            },
+          ),
+          ListTile(
+            title: Text('logout'.tr),
+            onTap: () {
+              Get.offAll(()=>const WelcomeScreen());
             },
           ),
 

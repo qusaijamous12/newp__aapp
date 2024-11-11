@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
             height: 10,
           ),
           Text(
-            'Please Fill the follwing data to add a Coach ...',
+            'Please Fill the_following_data_to add a Coach'.tr,
             style: TextStyle(
               color: Colors.grey[500],
               fontWeight: FontWeight.w500,
@@ -64,8 +64,8 @@ class _HomeScreenState extends State<HomeScreen> {
             keyboardType: TextInputType.emailAddress,
             controller: _nameController,
 
-            decoration:const InputDecoration(
-                hintText: 'Enter Coach Name',
+            decoration: InputDecoration(
+                hintText: 'Enter_Coach_Name'.tr,
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 10,
                   horizontal: 20,
@@ -93,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Radius.circular(10),
                   ),
                 ),
-                prefixIcon: Icon(Icons.person,color: kPrimary,)
+                prefixIcon:const Icon(Icons.person,color: kPrimary,)
             ),
           ),
           const SizedBox(
@@ -103,8 +103,8 @@ class _HomeScreenState extends State<HomeScreen> {
             keyboardType: TextInputType.emailAddress,
             controller: _emailController,
 
-            decoration:const InputDecoration(
-                hintText: 'Enter Coach Email',
+            decoration: InputDecoration(
+                hintText: 'Enter_Coach_Email'.tr,
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 10,
                   horizontal: 20,
@@ -132,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Radius.circular(10),
                   ),
                 ),
-                prefixIcon: Icon(Icons.email,color: kPrimary,)
+                prefixIcon:const Icon(Icons.email,color: kPrimary,)
             ),
           ),
           const SizedBox(
@@ -142,8 +142,8 @@ class _HomeScreenState extends State<HomeScreen> {
             keyboardType: TextInputType.emailAddress,
             controller: _ageController,
 
-            decoration:const InputDecoration(
-                hintText: 'Enter Coach Age',
+            decoration: InputDecoration(
+                hintText: 'Enter_Coach_Age'.tr,
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 10,
                   horizontal: 20,
@@ -171,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Radius.circular(10),
                   ),
                 ),
-                prefixIcon: Icon(Icons.numbers,color: kPrimary,)
+                prefixIcon:const Icon(Icons.numbers,color: kPrimary,)
             ),
           ),
           const SizedBox(
@@ -181,8 +181,8 @@ class _HomeScreenState extends State<HomeScreen> {
             keyboardType: TextInputType.emailAddress,
             controller: _majorController,
 
-            decoration:const InputDecoration(
-                hintText: 'Enter Coach Major',
+            decoration: InputDecoration(
+                hintText: 'Enter_Coach_Major'.tr,
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 10,
                   horizontal: 20,
@@ -210,7 +210,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Radius.circular(10),
                   ),
                 ),
-                prefixIcon: Icon(Icons.sports_gymnastics,color: kPrimary,)
+                prefixIcon:const Icon(Icons.sports_gymnastics,color: kPrimary,)
             ),
           ),
           const SizedBox(
@@ -220,8 +220,8 @@ class _HomeScreenState extends State<HomeScreen> {
             keyboardType: TextInputType.emailAddress,
             controller: _passwordController,
 
-            decoration:const InputDecoration(
-                hintText: 'Enter Coach Password',
+            decoration: InputDecoration(
+                hintText: 'Enter_Coach_Password'.tr,
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 10,
                   horizontal: 20,
@@ -259,8 +259,8 @@ class _HomeScreenState extends State<HomeScreen> {
             keyboardType: TextInputType.emailAddress,
             controller: _phoneController,
 
-            decoration:const InputDecoration(
-                hintText: 'Enter Coach Phone',
+            decoration: InputDecoration(
+                hintText: 'Enter_Coach_Phone'.tr,
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 10,
                   horizontal: 20,
@@ -298,8 +298,8 @@ class _HomeScreenState extends State<HomeScreen> {
             keyboardType: TextInputType.emailAddress,
             controller: _coachId,
 
-            decoration:const InputDecoration(
-                hintText: 'Enter Coach Id',
+            decoration: InputDecoration(
+                hintText: 'Enter_Coach_Id'.tr,
                 contentPadding: const EdgeInsets.symmetric(
                   vertical: 10,
                   horizontal: 20,
@@ -342,7 +342,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: double.infinity,
                   child: MyButton(
                       color: kPrimary,
-                      title: 'Add Coach',
+                      title: 'Add_Coach'.tr,
                       onPressed: (){
                         if(_emailController.text.isEmpty||_passwordController.text.isEmpty||_majorController.text.isEmpty||_passwordController.text.isEmpty||_ageController.text.isEmpty||_nameController.text.isEmpty){
                           Utils.MyToast(title: 'All Fields are Required');

@@ -97,27 +97,26 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
 
 
-        const  Padding(
+          Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Align(
-
-                child:const  Text(
-                  'PNU SPORT CLUB',
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: kPrimary,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+            const  Align(
                 alignment: AlignmentDirectional.topStart,
+                  child:  Text(
+                    'PNU SPORT CLUB',
+                    style: TextStyle(
+                      fontSize: 24,
+                      color: kPrimary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
               ),
               const  SizedBox(height: 20),
-              const  Text(
-                'Announcements',
-                style: TextStyle(
+                Text(
+                'announcements'.tr,
+                style:const TextStyle(
                   fontSize: 22,
                   color: Colors.blueGrey,
                 ),
@@ -138,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 }
                 else {
-                  return const Center(child:  Text('There is no announcment'));
+                  return  Center(child:  Text('There_is _no_announcment'.tr));
                 }
               }),
         ),

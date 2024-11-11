@@ -13,9 +13,9 @@ import '../shared/utils/utils.dart';
 class AdminController extends GetxController{
 
   final _titles=RxList<String>([
-    'Home Screen',
-    'Coaches Screen',
-    'Users Screen',
+    'Home_Screen',
+    'Coaches_Screen',
+    'Users_Screen',
 
 
   ]);

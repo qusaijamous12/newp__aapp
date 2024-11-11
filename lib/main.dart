@@ -1,14 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gradproject/controller/admin_controller.dart';
-import 'package:gradproject/controller/couch_controller.dart';
-import 'package:gradproject/controller/home_controller.dart';
-import 'package:gradproject/controller/user_controller.dart';
 import 'package:gradproject/screens/welcome_screen.dart';
 import 'package:gradproject/shared/colors.dart';
-
+import 'package:gradproject/shared/strings.dart';
+import 'controller/admin_controller.dart';
+import 'controller/couch_controller.dart';
+import 'controller/home_controller.dart';
+import 'controller/user_controller.dart';
 import 'firebase_options.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,20 +26,33 @@ void main() async{
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final _homeController=Get.find<HomeController>(tag: 'home_controller');
   @override
   Widget build(BuildContext context) {
     return  GetMaterialApp(
-    debugShowCheckedModeBanner: false,
+      fallbackLocale: const Locale('en'),
+      localizationsDelegates:const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate
+      ],
+      locale: Locale('${_homeController.currentLanguage}'),
+      translations:  Strings(),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         bottomNavigationBarTheme:const BottomNavigationBarThemeData(
           backgroundColor: kPrimary
         )
       ),
-      home: WelcomeScreen(),
+      home:const WelcomeScreen(),
     );
   }
 }

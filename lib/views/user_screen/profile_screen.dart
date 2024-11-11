@@ -1,9 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gradproject/controller/user_controller.dart';
 import 'package:gradproject/shared/colors.dart';
 import 'package:gradproject/widegts/my_button.dart';
+
+import '../../shared/utils/utils.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -36,14 +39,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimary,
-        title:const Text('Profile Screen',style: TextStyle(color: Colors.white),),
+        title: Text('Profile_Screen'.tr,style:const TextStyle(color: Colors.white),),
         leading: IconButton(
             onPressed: (){
               Get.back();
             }, icon:const Icon(Icons.arrow_back_ios,color: Colors.white,)),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
+      body: SingleChildScrollView(
+        padding:const EdgeInsetsDirectional.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -54,7 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   radius: 80,
                   backgroundColor: kPrimary,
                   backgroundImage: NetworkImage('https://cdn-icons-png.flaticon.com/512/219/219986.png'),
-      
+
                 ),
                 CircleAvatar(
                   radius: 18,
@@ -69,14 +72,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
             TextField(
               keyboardType: TextInputType.emailAddress,
               controller: nameController,
-              readOnly: true,
-      
+
               decoration:const InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 20,
                   ),
-      
+
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
@@ -110,13 +112,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               keyboardType: TextInputType.emailAddress,
               controller: emailController,
               readOnly: true,
-      
+
               decoration:const InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 20,
                   ),
-      
+
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
@@ -150,13 +152,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               keyboardType: TextInputType.emailAddress,
               controller: ageController,
               readOnly: true,
-      
+
               decoration:const InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 20,
                   ),
-      
+
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
@@ -190,13 +192,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               keyboardType: TextInputType.emailAddress,
               controller: idNumberController,
               readOnly: true,
-      
+
               decoration:const InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 20,
                   ),
-      
+
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
@@ -230,13 +232,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               keyboardType: TextInputType.emailAddress,
               controller: phoneController,
               readOnly: true,
-      
+
               decoration:const InputDecoration(
                   contentPadding: EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 20,
                   ),
-      
+
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
@@ -267,7 +269,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
               height: 20,
             ),
             Container(
-                width:double.infinity, child: MyButton(color: kPrimary, title: 'Edit Profile', onPressed: (){}))
+                width:double.infinity, child: MyButton(color: kPrimary, title: 'edit_profile'.tr, onPressed: (){
+                  FirebaseFirestore.instance.collection('users').doc(_userController.userModel.uid).update({
+                    'user_name':'${nameController.text}'
+                  }).then((value){
+                    Utils.MyToast(title: 'Updates Success');
+                  });
+            }))
           ],
         ),
       ),

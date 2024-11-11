@@ -1,14 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gradproject/controller/home_controller.dart';
+import 'package:gradproject/views/user_screen/about_app_screen.dart';
 import 'package:gradproject/views/user_screen/contact_us.dart';
 import 'package:gradproject/screens/welcome_screen.dart';
 import 'package:gradproject/shared/colors.dart';
+import 'package:gradproject/views/user_screen/membership_renewal_screen.dart';
 import 'package:gradproject/views/user_screen/profile_screen.dart';
 
-class SettingScreen extends StatelessWidget {
+class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
 
+  @override
+  State<SettingScreen> createState() => _SettingScreenState();
+}
+
+class _SettingScreenState extends State<SettingScreen> {
+  final _homeController=Get.find<HomeController>(tag: 'home_controller');
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,7 +32,7 @@ class SettingScreen extends StatelessWidget {
                   thickness: 2,
                   color: Colors.grey[300],
                 ),
-                itemCount: 6),
+                itemCount: 7),
           )
         ],
       ),
@@ -34,26 +43,29 @@ class SettingScreen extends StatelessWidget {
 
     List<Map<String,dynamic>> design=[
       {
-        'title':'Language','Icon':Icons.language,
+        'title':'language'.tr,'Icon':Icons.language,
       },
       {
-        'title':'Edit Profile','Icon':Icons.edit,
+        'title':'edit_profile'.tr,'Icon':Icons.edit,
 
       },
       {
-        'title':'About App','Icon':Icons.info,
+        'title':'Membership_renewal'.tr,'Icon':Icons.monetization_on
+      },
+      {
+        'title':'about_app'.tr,'Icon':Icons.info,
 
       },
       {
-        'title':'Help','Icon':Icons.help,
+        'title':'help'.tr,'Icon':Icons.help,
 
       },
       {
-        'title':'Contact Us','Icon':Icons.contact_page,
+        'title':'contact_us'.tr,'Icon':Icons.contact_page,
 
       },
       {
-        'title':'Log Out','Icon':Icons.logout,
+        'title':'logout'.tr,'Icon':Icons.logout,
 
       },
     ];
@@ -66,17 +78,24 @@ class SettingScreen extends StatelessWidget {
         onTap: (){
           switch(index){
             case 0:
-              break;
+              if(_homeController.currentLanguage=='en'){
+                _homeController.updateCurrentLanguage(const Locale('ar'));
+              }else{
+                _homeController.updateCurrentLanguage(const Locale('en'));
+              }
             case 1:
               Get.to(()=>const ProfileScreen());
               break;
             case 2:
+
+              Get.to(()=>const MembershipRenewalScreen());
               break;
             case 3:
+              Get.to(()=>const AboutAppScreen());
               break;
-            case 4:
-              Get.to(()=>const ContactUs());
             case 5:
+              Get.to(()=>const ContactUs());
+            case 6:
               Get.offAll(()=>const WelcomeScreen());
               break;
           }
@@ -114,5 +133,4 @@ class SettingScreen extends StatelessWidget {
     );
 
   }
-
 }

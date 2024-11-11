@@ -29,9 +29,9 @@ class _MessageScreenState extends State<MessageScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: kPrimary,
-        title:const Text(
-          'Messages Screen',
-          style: TextStyle(
+        title: Text(
+          'Chat_Screen'.tr,
+          style:const TextStyle(
             color: Colors.white
           ),
 

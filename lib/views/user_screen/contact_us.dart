@@ -23,7 +23,7 @@ class _ContactUsState extends State<ContactUs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title:const Text('Contact Us',style: TextStyle(color: Colors.white),),backgroundColor: kPrimary,leading: IconButton(onPressed: (){
+      appBar: AppBar(title: Text('contact_us'.tr,style:const TextStyle(color: Colors.white),),backgroundColor: kPrimary,leading: IconButton(onPressed: (){
         Get.back();
       }, icon:const Icon(Icons.arrow_back_ios,color: Colors.white,)),),
       body: Padding(
@@ -31,19 +31,19 @@ class _ContactUsState extends State<ContactUs> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-           const Text(
-              'Contact Us',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            Text(
+              'contact_us'.tr,
+              style:const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
            const  SizedBox(height: 8),
             Text(
-              'Get in touch with a member of our coaching staff.',
+              'Get_in_touch_with_a_member_of_our_coaching_staff.'.tr,
               style: TextStyle(fontSize: 16, color: Colors.grey[600]),
             ),
            const   SizedBox(height: 16),
             Container(
               height: 150,
-              padding: EdgeInsetsDirectional.all(10),
+              padding:const EdgeInsetsDirectional.all(10),
               width: double.infinity,
               decoration: BoxDecoration(
                 color: kPrimary.withOpacity(0.4),
@@ -54,10 +54,10 @@ class _ContactUsState extends State<ContactUs> {
                   color: Colors.white
                 ),
                 controller: messageController,
-                decoration:const InputDecoration(
-                  prefixIcon: Icon(Icons.email,color: Colors.white,),
-                  hintText: 'Wtite you message here ...',
-                 hintStyle: TextStyle(
+                decoration: InputDecoration(
+                  prefixIcon:const Icon(Icons.email,color: Colors.white,),
+                  hintText: 'Write you_message_here'.tr,
+                 hintStyle:const TextStyle(
                    color: Colors.white
                  ),
                   border: InputBorder.none
@@ -72,7 +72,7 @@ class _ContactUsState extends State<ContactUs> {
               alignment: AlignmentDirectional.center,
               child: Container(
                 width: double.infinity,
-                child: MyButton(color: kPrimary, title: 'Send Message', onPressed: (){
+                child: MyButton(color: kPrimary, title: 'send_message'.tr, onPressed: (){
 
                   if(messageController.text.isNotEmpty){
                     _userController.sendContactUsMessage(message: messageController.text);

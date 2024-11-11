@@ -6,6 +6,7 @@ import 'package:gradproject/screens/welcome_screen.dart';
 import 'package:gradproject/shared/colors.dart';
 import 'package:gradproject/views/admin_screen/admin_home_screen.dart';
 import 'package:gradproject/views/couch_screen/couch_home_screen.dart';
+import 'package:gradproject/views/user_screen/chat_listing_screen.dart';
 import 'package:gradproject/views/user_screen/contact_us.dart';
 import 'package:gradproject/views/user_screen/profile_screen.dart';
 
@@ -40,13 +41,20 @@ class _HomePageState extends State<HomePage> {
                 width: 10,
               ),
               Text(
-                '${_homeController.titles[_homeController.currentIndex]}',
+                '${_homeController.titles[_homeController.currentIndex]}'.tr,
                 style:const TextStyle(
                     color: Colors.white
                 ),
               ),
             ],
           ),
+          actions: [
+            IconButton(
+                onPressed: (){
+                  Get.to(()=>const ChatListingScreen(isUser: true,));
+                },
+                icon:const Icon(Icons.message,color: Colors.white,))
+          ],
 
         ),
         drawer: Drawer(
@@ -55,13 +63,13 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
             padding: EdgeInsets.zero,
             children: <Widget>[
-              const  DrawerHeader(
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(170, 4, 131, 72),
+                DrawerHeader(
+                decoration:const BoxDecoration(
+                  color:  Color.fromARGB(170, 4, 131, 72),
                 ),
                 child: Text(
-                  'Menu',
-                  style: TextStyle(
+                  'Menu'.tr,
+                  style:const TextStyle(
                     color: Colors.white,
                     fontSize: 24,
                   ),
@@ -69,20 +77,20 @@ class _HomePageState extends State<HomePage> {
               ),
 
               ListTile(
-                title: Text('Account'),
+                title: Text('account'.tr),
                 onTap: () {
                   Get.to(()=>const ProfileScreen());
                 },
               ),
               // New Sitting button in the drawer
               ListTile(
-                title:const Text('Contact Us'),
+                title: Text('contact_us'.tr),
                 onTap: () {
                   Get.to(()=>const ContactUs());
                 },
               ),
               ListTile(
-                title:const Text('Logout'),
+                title: Text('logout'.tr),
                 onTap: () {
                  Get.offAll(()=>const WelcomeScreen());
                 },
@@ -104,20 +112,20 @@ class _HomePageState extends State<HomePage> {
               },
 
               selectedItemColor: Colors.white,
-              items: const[
-                BottomNavigationBarItem(icon: Icon(
+              items: [
+                BottomNavigationBarItem(icon:const Icon(
                   Icons.home,
 
-                ),label: 'Home'),
+                ),label: 'home'.tr),
 
-                BottomNavigationBarItem(icon: Icon(
+                BottomNavigationBarItem(icon:const Icon(
                   Icons.class_,
 
-                ),label: 'Classes'),
-                BottomNavigationBarItem(icon: Icon(
+                ),label: 'classes'.tr),
+                BottomNavigationBarItem(icon:const Icon(
                   Icons.settings,
 
-                ),label: 'Setting'),
+                ),label: 'setting'.tr),
 
               ]),
         ),

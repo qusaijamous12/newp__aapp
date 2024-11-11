@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
 import 'package:gradproject/models/announcment_model.dart';
+import 'package:gradproject/models/chat_model.dart';
 import 'package:gradproject/models/class_model.dart';
 import 'package:gradproject/models/user_model.dart';
 import 'package:gradproject/views/user_screen/home_page.dart';
@@ -18,6 +19,9 @@ class UserController extends GetxController{
   final _classesModel=RxList<ClassesModel>([]);
   final _myAcceptClasses=RxList<ClassesModel>([]);
   final _announcmentCoachModel=RxList<AnnouncmentModel>([]);
+  final _listCoaches=RxList<UserModel>([]);
+  final _listChatModel=RxList<ChatModel>([]);
+  final _listUsers=RxList<UserModel>([]);
 
 
 
@@ -64,7 +68,7 @@ class UserController extends GetxController{
 
   }
 
-  Future createAccount({required String email,required String password,required String phoneNumber,required String userName,required int status,required String idNumber,required String age,final String ?major})async{
+  Future createAccount({required String email,required String password,required String phoneNumber,required String userName,required int status, String ?idNumber,String ?collegeName,required String age,final String ?major})async{
     _isLoading(true);
 
     await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password).then((value)async{
@@ -75,20 +79,17 @@ class UserController extends GetxController{
         'user_name':userName,
         'phone_number':phoneNumber,
         'status':status,
+        'college_name':collegeName??'',
         'age':age,
         'major':'${major??''}',
-        'idNumber':idNumber
+        'idNumber':idNumber??''
       }).then((value){
-        // loginModel=LoginModel(userName, email, status, lattiude, longtitude, phoneNumber,uid);
-        //
-        // emit(RegisterSuccessState());
-        // emit(AddDataToFireStoreSuccessState());
+
         Utils.MyToast(title: 'Register Success');
       }).catchError((error){
 
         print('there is an error in add the data to firestore $error');
 
-        // emit(AddDataToFireStoreErrorState());
       });
 
 
@@ -150,6 +151,27 @@ class UserController extends GetxController{
     _isLoading(false);
   }
 
+  Future<void> getAllUsers() async {
+    _listUsers.clear();
+    _isLoading(true);
+    try {
+      final userSnapshot = await FirebaseFirestore.instance.collection('users').get();
+      for (var user in userSnapshot.docs) {
+        if (user['status'] == 0) {
+          final classesSnapshot = await FirebaseFirestore.instance.collection('users')
+              .doc(user['uid']).collection('myClasses').get();
+          for (var classDoc in classesSnapshot.docs) {
+            if (classDoc['uid'] == uid) {
+              _listUsers.add(UserModel.fromJson(user.data()));
+            }
+          }
+        }
+      }
+    } catch (error) {
+      print('Error in fetching users: $error');
+    }
+    _isLoading(false);
+  }
 
 
   Future getAllClasses()async{
@@ -210,12 +232,100 @@ class UserController extends GetxController{
     _isLoading(false);
   }
 
+  Future getAllCoaches()async{
+    _listCoaches.clear();
+    _isLoading(true);
+    await FirebaseFirestore.instance.collection('users').get().then((value){
+      value.docs.forEach((element){
+        if(element['status']==2){
+          _listCoaches.add(UserModel.fromJson(element.data()));
+        }
+      });
+      print('sss${_listCoaches.length}');
+    }).catchError((error){
+      print('there is an error when get all coaches !$error');
+    });
+    _isLoading(false);
+  }
+
+
+  //Messages
+
+  void sendMessage({required String receiverId, required String dateTime, required String text, String ?image}){
+    ChatModel chatModel = ChatModel(
+      text: text,
+      dateTime: dateTime,
+      senderId: uid,
+      reciverId: receiverId,
+
+    );
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(uid)
+        .collection('chats')
+        .doc(receiverId)
+        .collection('message')
+        .add(chatModel.toMap()).then((value) {
+          // _listChatModel.add(ChatModel(text: text,dateTime: dateTime,senderId: uid,reciverId: receiverId));
+          print('message send Success !');
+
+
+    }).catchError((error){
+      print('there is an error when send message !');
+
+
+    });
+
+    FirebaseFirestore.instance
+        .collection('users')
+        .doc(receiverId)
+        .collection('chats')
+        .doc(uid)
+        .collection('message')
+        .add(chatModel.toMap()).then((value) {
+     print('message Send Success !');
+
+    }).catchError((error){
+
+      print('there is an error when send message !');
+    });
+
+
+  }
+
+
+  Future getMessages({required String receiverId})async{
+   await FirebaseFirestore.instance.
+    collection('users').
+    doc(uid).
+    collection('chats').
+    doc(receiverId).
+    collection('message').orderBy('dateTime').
+    snapshots()
+        .listen((event) {
+     _listChatModel.clear();
+      event.docs.forEach((element) {
+        _listChatModel.add(ChatModel.fromJson(element.data()));
+
+
+      });
+      print('Get Messages Success State ');
+
+    });
+  }
+
+
+
+
 
   String get uid=>_uid.value;
   bool get isLoading=>_isLoading.value;
   UserModel get userModel=>_userModel.value;
   List<AnnouncmentModel> get announcmentModel=>_announcmentModel;
   List<AnnouncmentModel> get announcmentCoachModel=>_announcmentCoachModel;
+  List<UserModel> get listCoaches=>_listCoaches;
+  List<ChatModel> get listChatModel =>_listChatModel;
+  List<UserModel> get listUsers=>_listUsers;
 
   List<ClassesModel> get classesModel=>_classesModel;
   List<ClassesModel> get myAcceptClasses=>_myAcceptClasses;

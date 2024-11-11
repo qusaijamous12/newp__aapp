@@ -16,29 +16,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Map<String, String>> announcements = [
-    {
-      "date": "JANUARY 13, 2022 AT 12:00 PM",
-      "title": "Game Canceled",
-      "details": "Today's game is postponed due to inclement weather."
-    },
-    {
-      "date": "JANUARY 14, 2022 AT 2:00 PM",
-      "title": "New Classes Available",
-      "details": "Check out the new fitness classes starting next week!"
-    },
-    {
-      "date": "JANUARY 14, 2022 AT 2:00 PM",
-      "title": "New Classes Available",
-      "details": "Check out the new fitness classes starting next week!"
-    },
-    {
-      "date": "JANUARY 14, 2022 AT 2:00 PM",
-      "title": "New Classes Available",
-      "details": "Check out the new fitness classes starting next week!"
-    },
-    // Add more announcements as needed
-  ];
   final _userController=Get.find<UserController>(tag: 'user_controller');
 
 
@@ -69,13 +46,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadiusDirectional.circular(20)
                     ),
                     clipBehavior: Clip.antiAliasWithSaveLayer,
-                    child: Image(image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJMuleu9jI4ckyd4_uoEzyPgEIDiHz_0curA&s'),fit: BoxFit.cover,)),
+                    child:const Image(image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJMuleu9jI4ckyd4_uoEzyPgEIDiHz_0curA&s'),fit: BoxFit.cover,)),
                 Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadiusDirectional.circular(20)
                     ),
                     clipBehavior: Clip.antiAliasWithSaveLayer,
-                    child: Image(image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9u74cuvXEVo7blBeLU0Ue8QeLwDSg_g543Q&s'),fit: BoxFit.cover,)),
+                    child:const Image(image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9u74cuvXEVo7blBeLU0Ue8QeLwDSg_g543Q&s'),fit: BoxFit.cover,)),
 
                 Container(
                     decoration: BoxDecoration(
@@ -100,14 +77,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
 
 
-        const  Padding(
+          Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Align(
-
-                child: const Text(
+           const   Align(
+                alignment: AlignmentDirectional.topStart,
+                child:  Text(
                   'PNU SPORT CLUB',
                   style: TextStyle(
                     fontSize: 24,
@@ -115,12 +92,11 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                alignment: AlignmentDirectional.topStart,
               ),
               const  SizedBox(height: 20),
-              const  Text(
-                'Announcements',
-                style: TextStyle(
+                Text(
+                'announcements'.tr,
+                style:const TextStyle(
                   fontSize: 22,
                   color: Colors.blueGrey,
                 ),
@@ -141,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   );
                 }
                 else {
-                  return const Center(child:  Text('There is no announcment'));
+                  return  Center(child:  Text('There_is _no_announcment'.tr));
                 }
               }),
         ),

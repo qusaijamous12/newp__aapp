@@ -11,9 +11,9 @@ import '../shared/utils/utils.dart';
 
 class CouchController extends GetxController{
   final _titles=RxList<String>([
-    'Home Screen',
-    'MyClasses Screen',
-    'Create Class Screen',
+    'Home_Screen',
+    'MyClasses_Screen',
+    'Create_Class_Screen',
 
 
   ]);

@@ -31,9 +31,9 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
               Get.back();
             },
             icon:const Icon(Icons.arrow_back_ios,color: Colors.white,)),
-        title:const Text(
-          'Announcment Coach Screen',
-          style: TextStyle(
+        title: Text(
+          'announcements'.tr,
+          style:const TextStyle(
             color: Colors.white,
 
           ),
@@ -45,9 +45,9 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const  Text(
-                'Please Fill the following fields ',
-                style: TextStyle(
+                Text(
+                'Please_Fill_the_following_fields'.tr,
+                style:const TextStyle(
                     color: kPrimary,
                     fontSize: 20,
                     fontWeight: FontWeight.w500
@@ -60,18 +60,18 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                 keyboardType: TextInputType.emailAddress,
                 controller: titleController,
 
-                decoration:const InputDecoration(
-                    hintText: 'Enter Announcment Title',
-                    contentPadding: EdgeInsets.symmetric(
+                decoration: InputDecoration(
+                    hintText: 'Enter_Announcment_Title'.tr,
+                    contentPadding: const EdgeInsets.symmetric(
                       vertical: 10,
                       horizontal: 20,
                     ),
-                    border: OutlineInputBorder(
+                    border:const OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(10),
                       ),
                     ),
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder:const OutlineInputBorder(
                       borderSide: BorderSide(
                         color: const Color.fromARGB(170, 4, 131, 72),
                         width: 1,
@@ -80,7 +80,7 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                         Radius.circular(10),
                       ),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder:const OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.blue,
                         width: 2,
@@ -89,7 +89,7 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                         Radius.circular(10),
                       ),
                     ),
-                    prefixIcon: Icon(Icons.title,color: kPrimary,)
+                    prefixIcon:const Icon(Icons.title,color: kPrimary,)
                 ),
               ),
               const SizedBox(
@@ -121,18 +121,18 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                   }
 
                 },
-                decoration:const InputDecoration(
-                    hintText: 'Enter Announcment Date',
-                    contentPadding: EdgeInsets.symmetric(
+                decoration: InputDecoration(
+                    hintText: 'Enter_Announcment_Date'.tr,
+                    contentPadding:const EdgeInsets.symmetric(
                       vertical: 10,
                       horizontal: 20,
                     ),
-                    border: OutlineInputBorder(
+                    border:const OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(10),
                       ),
                     ),
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder:const OutlineInputBorder(
                       borderSide: BorderSide(
                         color: const Color.fromARGB(170, 4, 131, 72),
                         width: 1,
@@ -141,7 +141,7 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                         Radius.circular(10),
                       ),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder:const OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.blue,
                         width: 2,
@@ -150,7 +150,7 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                         Radius.circular(10),
                       ),
                     ),
-                    prefixIcon: Icon(Icons.date_range,color: kPrimary,)
+                    prefixIcon:const Icon(Icons.date_range,color: kPrimary,)
                 ),
               ),
               const SizedBox(
@@ -170,18 +170,18 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                 },
 
 
-                decoration:const InputDecoration(
-                    hintText: 'Enter Announcment Time',
-                    contentPadding: EdgeInsets.symmetric(
+                decoration: InputDecoration(
+                    hintText: 'Enter_Announcment_Time'.tr,
+                    contentPadding:const EdgeInsets.symmetric(
                       vertical: 10,
                       horizontal: 20,
                     ),
-                    border: OutlineInputBorder(
+                    border: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(10),
                       ),
                     ),
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder:const OutlineInputBorder(
                       borderSide: BorderSide(
                         color: const Color.fromARGB(170, 4, 131, 72),
                         width: 1,
@@ -190,7 +190,7 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                         Radius.circular(10),
                       ),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder:const OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.blue,
                         width: 2,
@@ -199,7 +199,7 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                         Radius.circular(10),
                       ),
                     ),
-                    prefixIcon: Icon(Icons.timer,color: kPrimary,)
+                    prefixIcon:const Icon(Icons.timer,color: kPrimary,)
                 ),
               ),
               const SizedBox(
@@ -210,18 +210,18 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                 controller: newsController,
 
 
-                decoration:const InputDecoration(
-                    hintText: 'Enter Announcment News',
-                    contentPadding: EdgeInsets.symmetric(
+                decoration: InputDecoration(
+                    hintText: 'Enter_Announcment_News'.tr,
+                    contentPadding:const EdgeInsets.symmetric(
                       vertical: 10,
                       horizontal: 20,
                     ),
-                    border: OutlineInputBorder(
+                    border:const OutlineInputBorder(
                       borderRadius: BorderRadius.all(
                         Radius.circular(10),
                       ),
                     ),
-                    enabledBorder: OutlineInputBorder(
+                    enabledBorder:const OutlineInputBorder(
                       borderSide: BorderSide(
                         color: const Color.fromARGB(170, 4, 131, 72),
                         width: 1,
@@ -230,7 +230,7 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                         Radius.circular(10),
                       ),
                     ),
-                    focusedBorder: OutlineInputBorder(
+                    focusedBorder:const OutlineInputBorder(
                       borderSide: BorderSide(
                         color: Colors.blue,
                         width: 2,
@@ -240,7 +240,7 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                       ),
                     ),
 
-                    prefixIcon: Icon(Icons.newspaper,color: kPrimary,)
+                    prefixIcon:const Icon(Icons.newspaper,color: kPrimary,)
                 ),
               ),
               const SizedBox(
@@ -255,7 +255,7 @@ class _CreateAnnouncmentCouchState extends State<CreateAnnouncmentCouch> {
                       width: double.infinity,
                       child: MyButton(
                           color: kPrimary,
-                          title: 'Add',
+                          title: 'Add'.tr,
                           onPressed: ()async{
                             if(titleController.text.isEmpty||dateController.text.isEmpty||timeController.text.isEmpty||newsController.text.isEmpty){
                               Utils.MyToast(title: 'All Fields are Required');
